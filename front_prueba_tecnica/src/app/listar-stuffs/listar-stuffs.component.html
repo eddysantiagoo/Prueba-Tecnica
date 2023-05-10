@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <input
+      class="form-control form-control-lg mb-4 mt-5"
+      type="text"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="buscarStuff()"
+      placeholder="Buscar por nombre de stuff"
+    />
+
+    <div class="col-sm-12">
+      <form class="form-inline">
+        <fieldset class="form-group col-sm-11"></fieldset>
+        <fieldset class="form-group">
+          <a class="btn btn-primary" [routerLink]="['/stuffs/agregar']"
+            >Agrega una nueva Stuff!</a
+          >
+        </fieldset>
+      </form>
+      <br />
+      <table class="table table-striped table-dark  table-custom">
+        <thead>
+          <tr class="row">
+            <th class="col-md-2">ID</th>
+            <th class="col-sm-4">NAME</th>
+            <th class="col-sm-2">STATE</th>
+            <th class="col-sm-2">QUANTITY</th>
+            <th class="col-sm-2">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stuff of stuffs | async" class="row">
+            <td class="col-sm-2">
+              <i>{{ stuff.id }}</i>
+            </td>
+            <td class="col-sm-4">
+              <i>{{ stuff.name }}</i>
+            </td>
+            <td class="col-sm-2">
+              <i>{{ stuff.state }}</i>
+            </td>
+            <td class="col-sm-2">
+              <i>{{ stuff.quantity }}</i>
+            </td>
+            <td class="col-sm-1">
+              <fieldset class="form-group col-sm-1">
+                <a
+                  class="btn btn-info"
+                  [routerLink]="['/stuffs/editar/', stuff.id]"
+                  >Edit</a
+                >
+              </fieldset>
+            </td>
+            <td class="col-sm-1">
+              <fieldset class="form-group col-sm-1">
+                <a class="btn btn-danger" (click)="eliminarStuff(stuff.id)"
+                  >Delete</a
+                >
+              </fieldset>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

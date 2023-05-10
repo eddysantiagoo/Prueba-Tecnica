@@ -1,0 +1,40 @@
+:root {
+  --bg-color: #171717;
+  --text-color: #f1f1f1;
+  --link-color: #00bfff;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+mark {
+  color: #c7c7c771;
+  background-color: #3a3b3b;
+}
+
+.title {
+  text-decoration: none;
+  background: linear-gradient(to right, rgb(43, 57, 80), rgb(100, 152, 200)),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+.title:hover,
+.title:focus {
+  background-size: 0 0.1em, 100% 0.1em;
+}

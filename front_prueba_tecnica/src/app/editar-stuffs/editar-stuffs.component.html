@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-sm-12 pt-4">
+    <form (ngSubmit)="onSubmit()" #stuffForm="ngForm">
+      <h4 class="display-6">
+        Estas editando a la stuff <mark>{{ stuff.name }}</mark> con la id
+        <mark>{{ id }}</mark>
+      </h4>
+      <!-- Name formulario -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            required
+            [(ngModel)]="stuff.name"
+            name="name"
+          />
+        </div>
+      </fieldset>
+      <!-- State formulario -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="state">State</label>
+          <select
+            class="form-control"
+            required
+            [(ngModel)]="stuff.state"
+            name="state"
+          >
+            <option *ngFor="let state of states">{{ state }}</option>
+          </select>
+        </div>
+      </fieldset>
+      <!-- Quantity formulario -->
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="quantity">Quantity</label>
+          <input
+            type="number"
+            min="1"
+            max="233"
+            class="form-control"
+            required
+            [(ngModel)]="stuff.quantity"
+            name="quantity"
+          />
+        </div>
+      </fieldset>
+      <!-- Boton de envio -->
+      <fieldset class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button
+            type="submit"
+            class="btn btn-primary mt-3 view overlay zoom"
+            [disabled]="!stuffForm.form.valid"
+          >
+            Save
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
